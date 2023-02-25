@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="alert alert-success text-center my-5">
+        <h1>Welcome to the Boston House Pricing Prediction.</h1>
+    </div>
+    <div class="mb-3">
+        <form action="{{url_for('predict')}}" method="post" class="row g-3">
+            <div class="col-md-4">
+                <label for="CRIM" class="form-label">CRIM</label>
+                <input class="form-control form-control-sm my-2" type="text" name="CRIM" name="CRIM" placeholder="CRIM"
+                    required="required">
+            </div>
+            <div class="col-md-4">
+                <label for="ZN" class="form-label">ZN </label>
+                <input class="form-control form-control-sm my-2" type="text" name="ZN" name="ZN" placeholder="ZN"
+                    required="required">
+            </div>
+            <div class="col-md-4">
+                <label for="INDUS" class="form-label">INDUS</label>
+                <input class="form-control form-control-sm my-2" type="text" name="INDUS  name=" INDUS"
+                    placeholder="INDUS" required="required">
+            </div>
+            <div class="col-md-4">
+                <label for="NOX" class="form-label">NOX</label>
+                <input class="form-control form-control-sm my-2" type="text" name="NOX" name="NOX" placeholder="NOX"
+                    required="required">
+            </div>
+            <div class="col-md-4">
+                <label for="RM" class="form-label">RM</label>
+                <input class="form-control form-control-sm my-2" type="text" name="RM" name="RM" placeholder="RM"
+                    required="required">
+            </div>
+            <div class="col-md-4">
+                <label for="AGE" class="form-label">AGE</label>
+                <input class="form-control form-control-sm my-2" type="text" name="AGE" name="AGE" placeholder="AGE"
+                    required="required">
+            </div>
+            <div class="col-md-4">
+                <label for="DIS" class="form-label">DIS</label>
+                <input class="form-control form-control-sm my-2" type="text" name="DIS" name="DIS" placeholder="DIS"
+                    required="required">
+            </div>
+            <div class="col-md-4">
+                <label for="RAD" class="form-label">RAD</label>
+                <input class="form-control form-control-sm my-2" type="text" name="RAD" name="RAD" placeholder="RAD"
+                    required="required">
+            </div>
+            <div class="col-md-4">
+                <label for="TAX" class="form-label">TAX</label>
+                <input class="form-control form-control-sm my-2" type="text" name="TAX" name="TAX" placeholder="TAX"
+                    required="required">
+            </div>
+            <div class="col-md-4">
+                <label for="PTRATIO" class="form-label">PTRATIO</label>
+                <input class="form-control form-control-sm my-2" type="text" name="PTRATIO" name=" PTRATIO"
+                    placeholder="PTRATIO" required="required">
+            </div>
+            <div class="col-md-4">
+                <label for="B" class="form-label">B</label>
+                <input class="form-control form-control-sm my-2" type="text" name="B" name="B" placeholder="B"
+                    required="required">
+            </div>
+            <div class="col-md-4">
+                <label for="LSTAT" class="form-label">LSTAT</label>
+                <input class="form-control form-control-sm my-2" type="text" name="LSTAT" name=" LSTAT"
+                    placeholder="LSTAT" required="required">
+            </div>
+            <div class="col-md-6 ms-md-auto">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+            
+        </form>
+    </div>
+
+    <div class="text-bg-dark p-3 my-5">
+        {{predicted_value}}
+    </div>
+</body>
+
+</html>
