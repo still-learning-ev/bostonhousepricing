@@ -7,7 +7,7 @@ on:
 
 env:
   AWS_DEFAULT_REGION: us-east-2
-  ECR_REGISTRY: 906801772317.dkr.ecr.us-east-2.amazonaws.com/bostonhousepricing
+  ECR_REGISTRY: 906801772317.dkr.ecr.us-east-2.amazonaws.com
   IMAGE_NAME: bostonhousepricing
 
 jobs:
@@ -26,7 +26,6 @@ jobs:
           aws-region: us-east-1
 
       - name: Login to Amazon ECR
-        id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Build and tag Docker image
@@ -35,14 +34,14 @@ jobs:
         with:
           context: .
           push: false
-          tags: ${{ env.ECR_REGISTRY }}:${{ github.sha }}
+          tags: ${{ env.ECR_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
       - name: Push Docker image to Amazon ECR
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: ${{ env.ECR_REGISTRY }}:${{ github.sha }}
+          tags: ${{ env.ECR_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
         env:
           ECR_REGISTRY: ${{ env.ECR_REGISTRY }}
           AWS_REGION: ${{ env.AWS_DEFAULT_REGION }}
